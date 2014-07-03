@@ -1,15 +1,17 @@
-package com.breakcraft;
+package com.breakcraft.tools;
+
+import com.breakcraft.BC;
 
 import net.minecraft.client.Minecraft;
 
-public class BCInfo {
+public class Info {
 
 	private String clientName;
 	private String clientVersion;
 	private String clientWebsite;
 	private String clientDeveloperName;
 	
-	public BCInfo() {}
+	public Info() {}
 	
 	public String getClientName() {
 		return this.clientName;

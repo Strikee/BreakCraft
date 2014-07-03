@@ -1,8 +1,8 @@
 package com.breakcraft.window.windows;
 
 import com.breakcraft.BC;
+import com.breakcraft.tools.Utils;
 import com.breakcraft.window.Window;
-import com.breakcraft.window.utils.Utils;
 
 import net.minecraft.client.gui.GuiButton;
 

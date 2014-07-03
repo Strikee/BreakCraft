@@ -3,29 +3,30 @@ package com.breakcraft;
 import com.breakcraft.mod.Mod;
 import com.breakcraft.mod.ModList;
 import com.breakcraft.tools.ChatTools;
-import com.breakcraft.window.utils.Utils;
+import com.breakcraft.tools.Info;
+import com.breakcraft.tools.Utils;
 
 import net.minecraft.client.Minecraft;
 
 public class BC {
 
 	private static Minecraft bcMc;
-	private static BCInfo bcInfo;
+	private static Info Info;
 	private static ModList bcModList;
 	private static Utils bcUtils;
 	private static ChatTools bcChatTools;
 
 	public static void init(Minecraft minecraft) {
 		setMc(minecraft);
-		setBCInfo(new BCInfo());
+		setInfo(new Info());
 		setUtils(new Utils());
 		setChatTools(new ChatTools());
 		setModList(new ModList());
 		
-		getBCInfo().setClientName("BreakCraft");
-		getBCInfo().setClientVersion("0.0.1");
-		getBCInfo().setClientWebsite("BreakCraft.com");
-		getBCInfo().setClientDeveloperName("SoWhoYou");
+		getInfo().setClientName("BreakCraft");
+		getInfo().setClientVersion("0.0.1");
+		getInfo().setClientWebsite("BreakCraft.com");
+		getInfo().setClientDeveloperName("SoWhoYou");
 		getModList().loadMods("com.breakcraft.mod.mods");
 		
 		debugMsg("Inital Load Complete.");
@@ -40,17 +41,19 @@ public class BC {
 	
 	private static void setMc(Minecraft mc) {
 		bcMc = mc;
+		debugMsg("Minecraft set to: " + mc);
 	}
 	
 	/*
 	 * Get/Set ClientInfo
 	 */
-	public static BCInfo getBCInfo() {
-		return bcInfo;
+	public static Info getInfo() {
+		return Info;
 	}
 	
-	private static void setBCInfo(BCInfo info) {
-		bcInfo = info;
+	private static void setInfo(Info info) {
+		Info = info;
+		debugMsg("Info set to: " + info);
 	}
 	
 	/*
@@ -62,6 +65,7 @@ public class BC {
 	
 	private static void setChatTools(ChatTools chatTools) {
 		bcChatTools = chatTools;
+		debugMsg("ChatTools set to: " + chatTools);
 	}
 	
 	/*
@@ -73,6 +77,7 @@ public class BC {
 	
 	private static void setUtils(Utils utils) {
 		bcUtils = utils;
+		debugMsg("Utils set to: " + utils);
 	}
 	
 	/*
@@ -84,6 +89,7 @@ public class BC {
 	
 	private static void setModList(ModList modList) {
 		bcModList = modList;
+		debugMsg("ModList set to: " + modList);
 	}
 	
 	/*
@@ -94,7 +100,7 @@ public class BC {
 	}
 	
 	public static void debugMsg(String debugMsg) {
-		if (getDebug()) System.out.println("[" + bcInfo.getClientName() + "] " + debugMsg);
+		if (getDebug()) System.out.println("[" + getInfo().getClientName() + "] " + debugMsg);
 	}
 
 }

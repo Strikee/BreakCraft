@@ -12,7 +12,7 @@ import com.breakcraft.BC;
 import com.breakcraft.event.events.EditPacket.type;
 import com.breakcraft.mod.Mod;
 import com.breakcraft.mod.ModList;
-import com.breakcraft.window.utils.Utils;
+import com.breakcraft.tools.Utils;
 import com.breakcraft.window.windows.TestGui;
 
 public class TestMod extends Mod {

@@ -1,4 +1,4 @@
-package com.breakcraft.window.utils;
+package com.breakcraft.tools;
 
 import com.breakcraft.window.Window;
 
@@ -18,11 +18,11 @@ public class Utils extends Window {
 		drawRect(x1 - 1, y2, x2 + 1, y2 + 1, color);
 	}
 	
-	public int getWidth() {
+	public int getScreenWidth() {
 		return width;
 	}
 	
-	public int getHeight() {
+	public int getScreenHeight() {
 		return height;
 	}
 }
