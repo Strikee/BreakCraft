@@ -5,7 +5,8 @@ import java.util.List;
 
 import net.minecraft.network.Packet;
 
-import com.breakcraft.event.events.EditPacket.type;
+import com.breakcraft.event.events.EditPacket;
+import com.breakcraft.event.events.EditPacket.PacketType;
 import com.breakcraft.objects.KeyBind;
 
 public class Mod {
@@ -91,7 +92,7 @@ public class Mod {
 	public void onInGameRender() {}
 	public void onEnable() {}
 	public void onDisable() {}
-	public void onPacketEdit(Packet packetData, type packetType) {}
+	public void onPacketEdit(EditPacket editPacket, Packet packetData, PacketType packetType) {}
 	
 	public enum modCategory {
 		Player,

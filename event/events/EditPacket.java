@@ -8,19 +8,16 @@ import com.breakcraft.mod.Mod;
 
 public class EditPacket extends Event {
 
-	private Packet packetData;
-	private type packetType;
-
-	public EditPacket(Packet packet, type type) {
-		this.packetData = packet;
-		this.packetType = type;
+	public EditPacket(Packet packet, PacketType packetType) {
+		this.setPacket(packet);
+		this.setPacketType(packetType);
 	}
 	
 	public void processPacket() {
-		for (Mod mod : BC.getModList().getMods()) if (mod.getEnabled()) mod.onPacketEdit(this.packetData, this.packetType);
+		for (Mod mod : BC.getModList().getMods()) if (mod.getEnabled()) mod.onPacketEdit(this, this.getPacket(), this.getPacketType());
 	}
 	
-	public enum type {
+	public enum PacketType {
 		get,
 		send
 	}

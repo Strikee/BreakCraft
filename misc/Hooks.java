@@ -7,6 +7,7 @@ import com.breakcraft.BC;
 import com.breakcraft.event.Event;
 import com.breakcraft.event.events.ClientTick;
 import com.breakcraft.event.events.EditPacket;
+import com.breakcraft.event.events.EditPacket.PacketType;
 import com.breakcraft.event.events.InGameRender;
 import com.breakcraft.event.events.KeyPress;
 import com.breakcraft.event.events.PostUpdate;
@@ -66,11 +67,20 @@ public class Hooks {
 	}
 	
 	/*
-	 * NetHandlerPlayClient.java - Line 775
+	 * NetHandlerPlayClient.java - Line 776
 	 */
-	public static Packet getSendingPacket(Packet packet, EditPacket.type packetType) {
+	public static Packet getSendingPacket(Packet packet, PacketType packetType) {
 		Event event = new EditPacket(packet, packetType);
 		Event.newEvent(event);
 		return event.getPacket();
+	}
+	
+	/*
+	 * NetworkManager.java - Line 259
+	 */
+	public static boolean getReceivingPacket(Packet packet, PacketType packetType) {
+		Event event = new EditPacket(packet, packetType);
+		Event.newEvent(event);
+		return event.getCanceled();
 	}
 }

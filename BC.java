@@ -18,15 +18,17 @@ public class BC {
 
 	public static void init(Minecraft minecraft) {
 		setMc(minecraft);
-		setInfo(new Info());
-		setUtils(new Utils());
-		setChatTools(new ChatTools());
-		setModList(new ModList());
 		
+		setInfo(new Info());
 		getInfo().setClientName("BreakCraft");
 		getInfo().setClientVersion("0.0.1");
 		getInfo().setClientWebsite("BreakCraft.com");
 		getInfo().setClientDeveloperName("SoWhoYou");
+		
+		setUtils(new Utils());
+		setChatTools(new ChatTools());
+		
+		setModList(new ModList());
 		getModList().loadMods("com.breakcraft.mod.mods");
 		
 		debugMsg("Inital Load Complete.");
@@ -100,7 +102,11 @@ public class BC {
 	}
 	
 	public static void debugMsg(String debugMsg) {
+		try {
 		if (getDebug()) System.out.println("[" + getInfo().getClientName() + "] " + debugMsg);
+		} catch (Exception e) {
+			
+		}
 	}
 
 }
