@@ -6,6 +6,7 @@ import com.breakcraft.BC;
 import com.breakcraft.event.events.ClientTick;
 import com.breakcraft.event.events.EditPacket;
 import com.breakcraft.event.events.EditPacket.PacketType;
+import com.breakcraft.event.events.InEntityRender;
 import com.breakcraft.event.events.InGameRender;
 import com.breakcraft.event.events.KeyPress;
 import com.breakcraft.event.events.PostUpdate;
@@ -69,8 +70,11 @@ public class Event {
 						if (event instanceof InGameRender) {
 							((InGameRender) event).onInGameRender();
 						} else
-							if (event instanceof EditPacket) {
-								((EditPacket) event).processPacket();
-							}
+							if (event instanceof InEntityRender) {
+								((InEntityRender) event).onEntityRender();
+							} else
+								if (event instanceof EditPacket) {
+									((EditPacket) event).processPacket();
+								}
 	}
 }

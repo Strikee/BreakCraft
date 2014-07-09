@@ -19,12 +19,13 @@ public class Mod {
 	private boolean modCancelable;
 
 	public Mod() {}
-	
-	public Mod(String modName, modCategory modCategory, modFunction modFunction, int modKey) {
+
+	public Mod(String modName, modCategory modCategory, modFunction modFunction, int modKey, boolean modEnabled) {
 		this.modName = modName;
 		this.modCategory = modCategory;
 		this.modFunction = modFunction;
 		this.modKey = new KeyBind(modKey);
+		this.modEnabled = modEnabled;
 	}
 
 	public String getName() {
@@ -34,7 +35,7 @@ public class Mod {
 	public void setName(String modName) {
 		this.modName = modName;
 	}
-	
+
 	public modCategory getCategory() {
 		return this.modCategory;
 	}
@@ -42,7 +43,7 @@ public class Mod {
 	public void setModCategory(modCategory modCategory) {
 		this.modCategory = modCategory;
 	}
-	
+
 	public modFunction getFunction() {
 		return this.modFunction;
 	}
@@ -50,7 +51,7 @@ public class Mod {
 	public void setModFunction(modFunction modFunction) {
 		this.modFunction = modFunction;
 	}
-	
+
 	public KeyBind getKeyBind() {
 		return this.modKey;
 	}
@@ -58,7 +59,7 @@ public class Mod {
 	public void setKeyBind(KeyBind keyBind) {
 		this.modKey = keyBind;
 	}
-	
+
 	public boolean getEnabled() {
 		return this.modEnabled;
 	}
@@ -66,7 +67,7 @@ public class Mod {
 	public void setEnabled(boolean enabled) {
 		this.modEnabled = enabled;
 	}
-	
+
 	public boolean getCancelable() {
 		return this.modCancelable;
 	}
@@ -74,26 +75,31 @@ public class Mod {
 	public void setCancelable(boolean cancelable) {
 		this.modCancelable = cancelable;
 	}
-	
+
 	public void keyPressed() {
 		if (this.getFunction() == this.modFunction.Toggle) {
-			this.onToggleMod();
+			this.setEnabled(!this.getEnabled()); // Switch Enabled State
+			if (this.getEnabled()) {
+				this.onEnable(); // Run when Enabled
+			} else {
+				this.onDisable(); // Run when Disabled
+			}
 		} else
 			if (this.getFunction() == this.modFunction.OpenGui) {
 				this.onOpenGui();
 			}
 	}
-	
+
 	public void onOpenGui() {}
-	public void onToggleMod() {}
 	public void onClientTick() {}
 	public void onPreMotionUpdate() {}
 	public void onPostMotionUpdate() {}
 	public void onInGameRender() {}
+	public void onEntityRender() {}
 	public void onEnable() {}
 	public void onDisable() {}
-	public void onPacketEdit(EditPacket editPacket, Packet packetData, PacketType packetType) {}
-	
+	public void onPacketEdit(EditPacket editPacket) {}
+
 	public enum modCategory {
 		Player,
 		Render,
@@ -102,7 +108,7 @@ public class Mod {
 		Auto,
 		Misc
 	}
-	
+
 	public enum modFunction {
 		Default,
 		Toggle,

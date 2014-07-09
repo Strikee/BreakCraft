@@ -14,7 +14,7 @@ public class EditPacket extends Event {
 	}
 	
 	public void processPacket() {
-		for (Mod mod : BC.getModList().getMods()) if (mod.getEnabled()) mod.onPacketEdit(this, this.getPacket(), this.getPacketType());
+		for (Mod mod : BC.getModList().getMods()) if (mod.getEnabled()) mod.onPacketEdit(this);
 	}
 	
 	public enum PacketType {
