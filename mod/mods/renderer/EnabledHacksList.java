@@ -1,4 +1,4 @@
-package com.breakcraft.mod.mods;
+package com.breakcraft.mod.mods.renderer;
 
 import org.lwjgl.input.Keyboard;
 
@@ -7,7 +7,7 @@ import com.breakcraft.mod.Mod;
 import com.breakcraft.mod.Mod.modCategory;
 import com.breakcraft.mod.Mod.modFunction;
 import com.breakcraft.mod.ModList;
-import com.breakcraft.tools.Utils;
+import com.breakcraft.tools.Screen;
 
 public class EnabledHacksList extends Mod {
 

@@ -8,21 +8,20 @@ import com.breakcraft.mod.Mod;
 import com.breakcraft.mod.Mod.modCategory;
 import com.breakcraft.mod.Mod.modFunction;
 
-public class NoFall extends Mod {
+public class AnewMod extends Mod {
 	
-	private boolean originalOnGround;
-
-	public NoFall() {}
+	public AnewMod() {}
 	
 	// This is where you add some key info for the Mod (Name, Category, Function, KeyBind Key, Default Enabled State)
-	private static final Mod mod = new NoFall("NoFall", modCategory.Player, modFunction.Toggle, Keyboard.KEY_N, false);
+	private static final Mod mod = new AnewMod("AnewMod", modCategory.Misc, modFunction.Misc, Keyboard.CHAR_NONE, false);
 
-	public NoFall(String modName, modCategory modCategory, modFunction modFunction, int modKey, boolean modEnabled) {
+	public AnewMod(String modName, modCategory modCategory, modFunction modFunction, int modKey, boolean modEnabled) {
 		super(modName, modCategory, modFunction, modKey, modEnabled);
 	}
 
 	// This part never needs modification unless we want to change the debug output
 	public void load() {
+		if (this instanceof AnewMod) return; // Remove this after a mod is ready to use
 		BC.getModList().addMod(mod);
 		BC.debugMsg("--------------------------------------");
 		BC.debugMsg("New Mod Added! - Total Mods: " + BC.getModList().getMods().size());
@@ -35,14 +34,30 @@ public class NoFall extends Mod {
 	}
 
 	@Override
-	public void onPreMotionUpdate() {
-		this.originalOnGround = BC.getMc().thePlayer.onGround;
-		BC.getMc().thePlayer.onGround = true;		
-	}
+	public void onOpenGui() {}
 
 	@Override
-	public void onPostMotionUpdate() {
-		BC.getMc().thePlayer.onGround = this.originalOnGround;
-	}
+	public void onClientTick() {}
+
+	@Override
+	public void onPreMotionUpdate() {}
+
+	@Override
+	public void onPostMotionUpdate() {}
+
+	@Override
+	public void onInGameRender() {}
+
+	@Override
+	public void onEntityRender() {}
+
+	@Override
+	public void onEnable() {}
+
+	@Override
+	public void onDisable() {}
+
+	@Override
+	public void onPacketEdit(EditPacket editPacket) {}
 	
 }

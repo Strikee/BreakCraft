@@ -1,11 +1,10 @@
-package com.breakcraft.misc;
+package com.breakcraft;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 
-import com.breakcraft.BC;
 import com.breakcraft.event.Event;
 import com.breakcraft.event.events.ClientTick;
 import com.breakcraft.event.events.EditPacket;

@@ -2,9 +2,9 @@ package com.breakcraft.tools;
 
 import com.breakcraft.BC;
 
-public class ChatTools {
+public class Chat {
 
-	public ChatTools() { }
+	public Chat() { }
 	
 	public void addToChat(String string) {
 		

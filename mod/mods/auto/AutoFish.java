@@ -1,4 +1,4 @@
-package com.breakcraft.mod.mods;
+package com.breakcraft.mod.mods.auto;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityFishHook;

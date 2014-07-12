@@ -1,24 +1,28 @@
-package com.breakcraft.mod;
+package com.breakcraft.mod.mods.player;
 
 import org.lwjgl.input.Keyboard;
 
 import com.breakcraft.BC;
 import com.breakcraft.event.events.EditPacket;
+import com.breakcraft.mod.Mod;
+import com.breakcraft.mod.Mod.modCategory;
+import com.breakcraft.mod.Mod.modFunction;
 
-public class AnewMod extends Mod {
+public class NoFall extends Mod {
 	
-	public AnewMod() {}
+	private boolean originalOnGround;
+
+	public NoFall() {}
 	
 	// This is where you add some key info for the Mod (Name, Category, Function, KeyBind Key, Default Enabled State)
-	private static final Mod mod = new AnewMod("AnewMod", modCategory.Misc, modFunction.Misc, Keyboard.CHAR_NONE, false);
+	private static final Mod mod = new NoFall("NoFall", modCategory.Player, modFunction.Toggle, Keyboard.KEY_N, false);
 
-	public AnewMod(String modName, modCategory modCategory, modFunction modFunction, int modKey, boolean modEnabled) {
+	public NoFall(String modName, modCategory modCategory, modFunction modFunction, int modKey, boolean modEnabled) {
 		super(modName, modCategory, modFunction, modKey, modEnabled);
 	}
 
 	// This part never needs modification unless we want to change the debug output
 	public void load() {
-		if (this instanceof AnewMod) return; // Remove this after a mod is ready to use
 		BC.getModList().addMod(mod);
 		BC.debugMsg("--------------------------------------");
 		BC.debugMsg("New Mod Added! - Total Mods: " + BC.getModList().getMods().size());
@@ -31,30 +35,14 @@ public class AnewMod extends Mod {
 	}
 
 	@Override
-	public void onOpenGui() {}
+	public void onPreMotionUpdate() {
+		this.originalOnGround = BC.getMc().thePlayer.onGround;
+		BC.getMc().thePlayer.onGround = true;		
+	}
 
 	@Override
-	public void onClientTick() {}
-
-	@Override
-	public void onPreMotionUpdate() {}
-
-	@Override
-	public void onPostMotionUpdate() {}
-
-	@Override
-	public void onInGameRender() {}
-
-	@Override
-	public void onEntityRender() {}
-
-	@Override
-	public void onEnable() {}
-
-	@Override
-	public void onDisable() {}
-
-	@Override
-	public void onPacketEdit(EditPacket editPacket) {}
+	public void onPostMotionUpdate() {
+		BC.getMc().thePlayer.onGround = this.originalOnGround;
+	}
 	
 }

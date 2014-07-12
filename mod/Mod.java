@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.network.Packet;
 
+import com.breakcraft.BC;
 import com.breakcraft.event.events.EditPacket;
 import com.breakcraft.event.events.EditPacket.PacketType;
 import com.breakcraft.objects.KeyBind;
@@ -87,7 +88,10 @@ public class Mod {
 		} else
 			if (this.getFunction() == this.modFunction.OpenGui) {
 				this.onOpenGui();
+			} else {
+				BC.getChatTools().addToConsole("Error with toggle");
 			}
+				
 	}
 
 	public void onOpenGui() {}

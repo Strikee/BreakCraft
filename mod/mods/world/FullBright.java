@@ -1,4 +1,4 @@
-package com.breakcraft.mod.mods;
+package com.breakcraft.mod.mods.world;
 
 import org.lwjgl.input.Keyboard;
 
