@@ -1,6 +1,9 @@
 package com.breakcraft;
 
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -14,6 +17,7 @@ import com.breakcraft.event.events.InGameRender;
 import com.breakcraft.event.events.KeyPress;
 import com.breakcraft.event.events.PostUpdate;
 import com.breakcraft.event.events.PreUpdate;
+import com.breakcraft.event.events.ScreenUpdate;
 
 public class Hooks {
 
@@ -96,5 +100,13 @@ public class Hooks {
 		Event event = new InEntityRender();
 		Event.newEvent(event);
 		
+	}
+	
+	/*
+	 * GuiScreen.java - Line 77
+	 */
+	public static void getGuiScreen(GuiScreen guiScreen, List buttonList, List labelList) {
+		Event event = new ScreenUpdate(guiScreen, buttonList, labelList);
+		Event.newEvent(event);
 	}
 }

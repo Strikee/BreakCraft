@@ -3,6 +3,7 @@ package com.breakcraft.mod;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.network.Packet;
 
 import com.breakcraft.BC;
@@ -103,6 +104,7 @@ public class Mod {
 	public void onEnable() {}
 	public void onDisable() {}
 	public void onPacketEdit(EditPacket editPacket) {}
+	public void onScreenUpdate(GuiScreen eventScreen, List eventButtons, List eventLabels) {}
 
 	public enum modCategory {
 		Player,

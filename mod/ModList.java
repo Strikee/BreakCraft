@@ -36,8 +36,8 @@ public class ModList {
 	}
 
 	public void loadMods(String pkg) {
-		List<Class<?>> classes = this.find(pkg);
 		try {
+			List<Class<?>> classes = this.find(pkg);
 			for(Class<?> c : classes) {
 				for (Method m : c.getMethods()) {
 					Object o = c.newInstance();

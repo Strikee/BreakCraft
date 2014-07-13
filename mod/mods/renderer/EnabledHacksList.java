@@ -7,7 +7,7 @@ import com.breakcraft.mod.Mod;
 import com.breakcraft.mod.Mod.modCategory;
 import com.breakcraft.mod.Mod.modFunction;
 import com.breakcraft.mod.ModList;
-import com.breakcraft.tools.Screen;
+import com.breakcraft.tools.Window;
 
 public class EnabledHacksList extends Mod {
 
@@ -49,8 +49,8 @@ public class EnabledHacksList extends Mod {
 				if (w < BC.getMc().fontRenderer.getStringWidth(s)) w = BC.getMc().fontRenderer.getStringWidth(s);
 			}
 		}
-		BC.getUtils().drawRect(0, 0, w + 4, (size * 12) + 13, 0x40FFFFFF, 0x80000000);
-		BC.getUtils().drawString(BC.getMc().fontRenderer, title, 2, 2, 0xFF3399FF);
+		BC.getWindow().drawRect(0, 0, w + 4, (size * 12) + 13, 0x40FFFFFF, 0x80000000);
+		BC.getWindow().drawString(BC.getMc().fontRenderer, title, 2, 2, 0xFF3399FF);
 		for (Mod m : BC.getModList().getMods()) {
 			if (m.getEnabled()) {
 				String s = m.getName();
@@ -58,9 +58,9 @@ public class EnabledHacksList extends Mod {
 				s2 = s2.replace("[NONE]", "");
 				s2 = s2.replace("NUMPAD", "");
 				s2 = s2.replace("CONTROL", "Ctrl");
-				BC.getUtils().drawString(BC.getMc().fontRenderer, s, 2, (count * 12) + 14, 0xFFFFFFFF);
-				BC.getUtils().drawString(BC.getMc().fontRenderer, s2, w - BC.getMc().fontRenderer.getStringWidth(s2), (count * 12) + 14, 0xFF3399FF);
-				BC.getUtils().drawRect(0, (count * 12) + 11, w + 3, (count * 12) + 12, 0x40FFFFFF, 0x80000000);
+				BC.getWindow().drawString(BC.getMc().fontRenderer, s, 2, (count * 12) + 14, 0xFFFFFFFF);
+				BC.getWindow().drawString(BC.getMc().fontRenderer, s2, w - BC.getMc().fontRenderer.getStringWidth(s2), (count * 12) + 14, 0xFF3399FF);
+				BC.getWindow().drawRect(0, (count * 12) + 11, w + 3, (count * 12) + 12, 0x40FFFFFF, 0x80000000);
 				count++;
 			}
 		}

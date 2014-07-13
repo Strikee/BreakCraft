@@ -18,7 +18,7 @@ public class AutoFish extends Mod {
 	public AutoFish() {}
 
 	// This is where you add some key info for the Mod (Name, Category, Function, KeyBind Key)
-	private static final Mod mod = new AutoFish("Auto Fish", modCategory.Auto, modFunction.Toggle, Keyboard.CHAR_NONE, false);
+	private static final Mod mod = new AutoFish("Auto Fish", modCategory.Auto, modFunction.Toggle, Keyboard.KEY_H, false);
 
 	public AutoFish(String modName, modCategory modCategory, modFunction modFunction, int modKey, boolean modEnabled) {
 		super(modName, modCategory, modFunction, modKey, modEnabled);
@@ -54,7 +54,7 @@ public class AutoFish extends Mod {
 						/*
 						 * OMG we got a fish!
 						 */
-						BC.getChatTools().addToChat("Ummm... I think we've got something!");
+						BC.getChatTools().addToConsole("Ummm... I think we've got something!");
 						/*
 						 * Lets get that fish!
 						 */
@@ -66,7 +66,7 @@ public class AutoFish extends Mod {
 						/*
 						 * Did you get the fish?
 						 */
-						BC.getChatTools().addToChat("Holly shit it worked! You got a fish!");
+						BC.getChatTools().addToConsole("Holly shit it worked! You got a fish!");
 					}
 				}
 			}

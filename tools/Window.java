@@ -1,10 +1,10 @@
 package com.breakcraft.tools;
 
-import com.breakcraft.window.Window;
+import net.minecraft.client.gui.GuiScreen;
 
-public class Screen extends Window {
+public class Window extends GuiScreen {
 	
-	public Screen() { }
+	public Window() { }
 	
 	public void drawRect(int x1, int y1, int x2, int y2, int edgeColor, int rectColor) {
 		drawRectEdge(x1, y1, x2, y2, edgeColor);
@@ -24,5 +24,9 @@ public class Screen extends Window {
 	
 	public int getScreenHeight() {
 		return height;
+	}
+	
+	public GuiScreen getGuiScreen() {
+		return mc.currentScreen;
 	}
 }

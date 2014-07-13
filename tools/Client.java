@@ -6,12 +6,12 @@ import net.minecraft.client.Minecraft;
 
 public class Client {
 
+	public Client() {}
+	
 	private String name;
 	private String version;
 	private String website;
 	private String developer;
-	
-	public Client() {}
 	
 	public String getClientName() {
 		return this.name;

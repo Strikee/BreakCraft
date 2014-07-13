@@ -11,6 +11,7 @@ import com.breakcraft.event.events.InGameRender;
 import com.breakcraft.event.events.KeyPress;
 import com.breakcraft.event.events.PostUpdate;
 import com.breakcraft.event.events.PreUpdate;
+import com.breakcraft.event.events.ScreenUpdate;
 
 public class Event {
 
@@ -75,6 +76,9 @@ public class Event {
 							} else
 								if (event instanceof EditPacket) {
 									((EditPacket) event).processPacket();
-								}
+								} else
+									if (event instanceof ScreenUpdate) {
+										((ScreenUpdate) event).updateScreen();
+									}
 	}
 }
